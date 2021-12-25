@@ -1,0 +1,94 @@
+
+===> FakeStore Application : MERN stack <===
+
+Color schema: 
+indigo-500
+yellow-400
+
+above 2xl :    2xl:w-9/12 sm:w-full mx-auto
+
+
+--------------------------------------------------------------------------------------------------------------
+
+> /api/products     -> Get all products
+
+> /api/products?limit=2     -> get limited products
+> /api/products?sort='desc'   -> get products with order by 'asc' or 'desc'
+> /api/products?limit=3&sort='desc'  -> get limited products with order by 'asc' or 'desc'
+
+> /api/products/:id     -> Get single product by ID
+
+> /api/categories   -> get all available categories 
+
+> /api/products/category/:category   -> get categorywise products
+
+> /api/products/category/:category?limit=2     -> get categorywise limited products
+> /api/products/category/:category?sort='desc'   -> get categorywise products with order by 'asc' or 'desc'
+> /api/products/category/:category?limit=3&sort='desc'  -> get categorywise limited products with order by 'asc' or 'desc'
+
+> /api/addProduct   -> POST request to add new product
+
+> /api/update/:id   -> PATCH request to update a existing product
+
+> /api/delete/:id   -> DELETE request to delete a existing product
+
+> 
+
+--------------------------------------------------------------------------------------------------------------
+
+
+Create a REST API for a Store. That should have following features.
+Required tasks:
+
+NOTE:   20 products will be Default. -> with different categories :
+
+NOTE:   Products will be two types : 1) Default Products -> never going to change
+                                     2) User added Products -> can be updated -> will be deletd automatically after 24hour
+
+NOTE:   USers will be two types :- 1) Registred Users   -   will get API key
+                                   2) Non-Registred Users
+
+    🔴🟤🟢🟡🟠🔵⚪⚫⏺⭕ <- Bullet points represntation
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+⏺  Default products never going to change.
+⏺  Default products will not be deleted/updated on the database. 
+    But if user ( Registed/non-registed ) sent data successfully it will return you the fake deleted product response.
+ 
+
+⚪  Registed Users having functionality to add their own products in DB and 
+    They can updated or Delete only their products.
+    They cannot access others products in DB.
+    These product will get automatically deleted after 24 hours of their creation.
+
+⚪  Non-Registred Users have aacess to only Default products.
+    They can access update/delete/create routes.
+    But in actually they can't add/update/delele any product from DB.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+TODO: LIST
+
+1. Get all Products ✅
+2. Get a single Product by id (i.e., 1/2/3/...) ✅
+3. Get all the categories in store   ✅
+4. Get products by category ✅
+5. Get limited result of products ( sent no.of products mentioned as limit ) ✅
+6. Add new Product functionality ☑ -> they will get automatic deleted from store after 24hour 
+7. Update User added product ☑
+8. Delete User added product ☑
+9. Sort by product id -> in ascending or descending order ✅
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+{
+    IDEA: Use an API key
+    -->    I can make two schemas 1) products schema & 2) user schema.
+    -->    User should have a key to access these products
+    -->    user shema conatains reference to their products only with key
+}
+
